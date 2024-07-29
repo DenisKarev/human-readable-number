@@ -3,8 +3,6 @@ const seconds = { 10: 'ten', 11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fo
 const tenths = { 1: 'ten', 2: 'twenty', 3: 'thirty', 4: 'forty', 5: 'fifty', 6: 'sixty', 7: 'seventy', 8: 'eighty', 9: 'ninety' }
 
 module.exports = function toReadable(number) {
-    let humanReadableNumber = '';
-
     if (number < 10) {
         return firsts[number];
     }
@@ -17,6 +15,7 @@ module.exports = function toReadable(number) {
 
     if (number < 100 && firstRemainder) {
         return `${tenths[parseInt(number / 10)]} ${firsts[firstRemainder]}`;
+
     } else if (number < 100) {
         return tenths[parseInt(number / 10)];
     }
